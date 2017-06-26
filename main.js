@@ -13,6 +13,7 @@ $.getJSON("http://ip-api.com/json", function(location) {
      var mTemp;
      var weatherType;
      var city = data.name;
+     var tempSwap = true;
      mTemp = data.main.temp;
      fTemp = Math.floor((mTemp*(9/5)-459.67));
      cTemp = Math.floor((mTemp-273));
@@ -21,6 +22,17 @@ $.getJSON("http://ip-api.com/json", function(location) {
         $("#city").html(city);
         $("#weatherType").html(weatherType);
         $("#temp").html(fTemp + " &#8457;");
+
+        $("#temp").click(function() {
+          if(tempSwap === false) {
+             $("#temp").html(fTemp + " &#8457;");
+             tempSwap=true;
+          } else {
+            $("#temp").html(cTemp + " &#8451;");
+            tempSwap=false;
+          }
+        });
+
      });
 
 });
