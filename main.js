@@ -1,16 +1,28 @@
 $(document).ready(function() {
 var lat;
 var lon;
-$get.JSON("http://ip-api.com/json", function(location) {
+$.getJSON("http://ip-api.com/json", function(location) {
+  lat = location.lat;
+  lon = location.lon;
 
-  var api = "http://api.openweathermap.org/data/2.5/weather?id=5235024&appid=9eb4fe34c90cb7ecf604f1708bc6e08e";
+  var api = 'http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&appid=9eb4fe34c90cb7ecf604f1708bc6e08e';
 
   $.getJSON(api, function(data) {
-        console.log(data.coord.lon);
+     var fTemp;
+     var cTemp;
+     var mTemp;
+     var weatherType;
+     var city = data.name;
+     mTemp = data.main.temp;
+     fTemp = Math.floor((mTemp*(9/5)-459.67));
+     cTemp = Math.floor((mTemp-273));
+     weatherType = data.weather[0].description;
 
         $("#city").html(city);
+        $("#weatherType").html(weatherType);
+        $("#temp").html(fTemp + " &#8457;");
      });
-});
 
+});
 
 });
