@@ -18,7 +18,10 @@ $.getJSON("http://ip-api.com/json", function(location) {
      fTemp = Math.floor((mTemp*(9/5)-459.67));
      cTemp = Math.floor((mTemp-273));
      weatherType = data.weather[0].description;
+     var iconCode = data.weather[0].icon;
+     var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
 
+        $("#icon").html("<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon current weather.'>");
         $("#city").html(city);
         $("#weatherType").html(weatherType);
         $("#temp").html(fTemp + " &#8457;");
