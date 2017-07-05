@@ -1,0 +1,37 @@
+body {
+  background-color: #000;
+  color: #FFF;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 58px;
+}
+
+img {
+  width: 90px;
+  height: 90px;
+}
+
+li#city,
+li#weatherType {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 29px;
+}
+
+li#temp {
+  font-family: 'Roboto', sans-serif;
+  font-size: 50px;
+}
+
+/* Vertical Center */
+
+#main-box {
+  padding: 5% 0;
+}
+
+#sub-box {
+  padding: 10% 0;
+
+}
